@@ -31,6 +31,12 @@ function log(msg, level = "info") {
   const line = `[${timestamp}] ${level.toUpperCase()}: ${msg}`;
   console.log(line);
   fs.appendFileSync("bot_arbitrage.log", line + "\n");
+
+  fs.watchFile('bot_arbitrage.log', () => {
+    const data = fs.readFileSync('bot_arbitrage.log', 'utf8');
+    console.log('\n--- Log de Lucros ---\n');
+    console.log(data.split('\n').slice(-10).join('\n')); // Mostra as últimas 10 linhas
+  });
 }
 
 // Logger somente para trades lucrativos
