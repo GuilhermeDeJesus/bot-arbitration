@@ -39,6 +39,12 @@ function logProft(msg, level = "info") {
   const line = `[${timestamp}] ${level.toUpperCase()}: ${msg}`;
   console.log(line);
   fs.appendFileSync("bot_arbitrage_profits.log", line + "\n");
+
+  fs.watchFile('bot_arbitrage_profits.log', () => {
+    const data = fs.readFileSync('bot_arbitrage_profits.log', 'utf8');
+    console.log('\n--- Log de Lucros ---\n');
+    console.log(data.split('\n').slice(-10).join('\n')); // Mostra as últimas 10 linhas
+  });
 }
 
 // Configurações do bot
@@ -449,7 +455,6 @@ async function verificarOportunidades() {
                         log(`>>> EXECUTANDO: ${symbol} | ${buyDex} → ${sellDex} | Lucro $${profit.toFixed(2)}`);
                         logProft(`>>> EXECUTANDO: ${symbol} | ${buyDex} → ${sellDex} | Lucro $${profit.toFixed(2)}`);
 
-                        // const minTokenOut = amountOut * BigInt(10000 - SLIPPAGE * 10000) / 10000n;
                         const minTokenOut = BigInt(Math.floor((1 - SLIPPAGE) * 1e6)); // por ex. 990000 para 1%
                         const minUSDC = BigInt(amountBack) * minTokenOut / 1_000_000n;
                         

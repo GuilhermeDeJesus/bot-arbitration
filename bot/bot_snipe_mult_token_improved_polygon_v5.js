@@ -31,6 +31,12 @@ function log(msg, level = "info") {
   const line = `[${timestamp}] ${level.toUpperCase()}: ${msg}`;
   console.log(line);
   fs.appendFileSync("bot_arbitrage.log", line + "\n");
+
+  fs.watchFile('bot_arbitrage.log', () => {
+    const data = fs.readFileSync('bot_arbitrage.log', 'utf8');
+    console.log('\n--- Log de Lucros ---\n');
+    console.log(data.split('\n').slice(-10).join('\n')); // Mostra as últimas 10 linhas
+  });
 }
 
 // Logger somente para trades lucrativos
@@ -455,9 +461,11 @@ async function verificarOportunidades() {
                         log(`>>> EXECUTANDO: ${symbol} | ${buyDex} → ${sellDex} | Lucro $${profit.toFixed(2)}`);
                         logProft(`>>> EXECUTANDO: ${symbol} | ${buyDex} → ${sellDex} | Lucro $${profit.toFixed(2)}`);
 
-                        // const minTokenOut = amountOut * BigInt(10000 - SLIPPAGE * 10000) / 10000n;
-                        const minTokenOut = BigInt(Math.floor((1 - SLIPPAGE) * 1e6)); // por ex. 990000 para 1%
-                        const minUSDC = BigInt(amountBack) * minTokenOut / 1_000_000n;
+                        // const minTokenOut = BigInt(Math.floor((1 - SLIPPAGE) * 1e6)); // por ex. 990000 para 1%
+                        // const minUSDC = BigInt(amountBack) * minTokenOut / 1_000_000n;
+
+                        const minTokenOut = amountOut * BigInt(10000 - SLIPPAGE * 10000) / 10000n;
+                        const minUSDC = amountBack * BigInt(10000 - SLIPPAGE * 10000) / 10000n;
                         
                         // Verifica saldo suficiente antes de aprovar e executar
                         const hasUSDC = await hasSufficientBalance(BASE_TOKEN, TRADE_AMOUNT_USDC);
