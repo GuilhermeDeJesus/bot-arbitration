@@ -39,6 +39,12 @@ function logProft(msg, level = "info") {
   const line = `[${timestamp}] ${level.toUpperCase()}: ${msg}`;
   console.log(line);
   fs.appendFileSync("bot_arbitrage_profits.log", line + "\n");
+
+  fs.watchFile('bot_arbitrage_profits.log', () => {
+    const data = fs.readFileSync('bot_arbitrage_profits.log', 'utf8');
+    console.log('\n--- Log de Lucros ---\n');
+    console.log(data.split('\n').slice(-10).join('\n')); // Mostra as últimas 10 linhas
+  });
 }
 
 // Configurações do bot
