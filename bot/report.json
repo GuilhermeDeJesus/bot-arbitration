@@ -1,0 +1,62 @@
+[
+  {
+    "timestamp": "2025-04-07T08:50:13.601Z",
+    "token": "MATIC",
+    "buyDex": "quickswap",
+    "sellDex": "uniswap",
+    "priceBuy": 753.9328257651323,
+    "priceSell": 121.189608,
+    "profit": 1.1896080000000069,
+    "percent": 0.9913400000000057
+  },
+  {
+    "timestamp": "2025-04-07T08:50:13.612Z",
+    "token": "MATIC",
+    "buyDex": "quickswap",
+    "sellDex": "kyberswap",
+    "priceBuy": 753.9328257651323,
+    "priceSell": 121.189608,
+    "profit": 1.1896080000000069,
+    "percent": 0.9913400000000057
+  },
+  {
+    "timestamp": "2025-04-07T08:50:13.613Z",
+    "token": "MATIC",
+    "buyDex": "uniswap",
+    "sellDex": "quickswap",
+    "priceBuy": 753.9328257651323,
+    "priceSell": 121.189608,
+    "profit": 1.1896080000000069,
+    "percent": 0.9913400000000057
+  },
+  {
+    "timestamp": "2025-04-07T08:50:13.613Z",
+    "token": "MATIC",
+    "buyDex": "uniswap",
+    "sellDex": "kyberswap",
+    "priceBuy": 753.9328257651323,
+    "priceSell": 121.189608,
+    "profit": 1.1896080000000069,
+    "percent": 0.9913400000000057
+  },
+  {
+    "timestamp": "2025-04-07T08:50:13.614Z",
+    "token": "MATIC",
+    "buyDex": "kyberswap",
+    "sellDex": "quickswap",
+    "priceBuy": 753.9328257651323,
+    "priceSell": 121.189608,
+    "profit": 1.1896080000000069,
+    "percent": 0.9913400000000057
+  },
+  {
+    "timestamp": "2025-04-07T08:50:13.615Z",
+    "token": "MATIC",
+    "buyDex": "kyberswap",
+    "sellDex": "uniswap",
+    "priceBuy": 753.9328257651323,
+    "priceSell": 121.189608,
+    "profit": 1.1896080000000069,
+    "percent": 0.9913400000000057
+  }
+]
