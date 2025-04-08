@@ -84,13 +84,10 @@ const TOKENS = {
 
 // DEXs e seus tipos (v2 ou v3)
 const ROUTERS = {
-  uniswap:   { address: getAddress("0xE592427A0AEce92De3Edee1F18E0157C05861564"), type: "v3" }, // Contrato Router Verificado e Ok
-  quickswap: { address: getAddress("0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff"), type: "v2" }, // Contrato Router Verificado e Ok
-  sushiswap: { address: getAddress("0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506"), type: "v2" }, // Tem que testar
-  quickswapv3: { address: getAddress("0xf5b509bB0909a69B1c207E495f687a596C168E12"), type: "v3" }, // Tem que testar
-  // kyberswap: { address: getAddress("0x6131B5fae19EA4f9D964eAc0408E4408b66337b5"), type: "v2" }, // Tem que testar
-  // openocean:{ address: getAddress("0xa6c92c3f71e5e6757f83f5e6c3edc1b46c67b7d4"), type: "v2" },
-  // shibaswap:{ address: getAddress("0x03f7724180AA6b939894B5Ca4314783B0b36b329"), type: "v2" }
+  __uniswap_v3: { address: getAddress("0xE592427A0AEce92De3Edee1F18E0157C05861564"), type: "v3" }, // Contrato Router Verificado e Ok
+  quickswap_v2: { address: getAddress("0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff"), type: "v2" }, // Contrato Router Verificado e Ok
+  sushiswap_v2: { address: getAddress("0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506"), type: "v2" }, // Tem que testar | Mesmo router da uniswap v2
+  quickswap_v3: { address: getAddress("0xf5b509bB0909a69B1c207E495f687a596C168E12"), type: "v3" }, // Tem que testar
 };
 
 // Aprovação e verificação de allowance
