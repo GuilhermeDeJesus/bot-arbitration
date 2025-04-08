@@ -46,7 +46,7 @@ const provider = new JsonRpcProvider(process.env.RPC_URL);
 const wallet = new Wallet(process.env.PRIVATE_KEY, provider);
 
 // Configurações de trade
-const TRADE_AMOUNT_USDC = parseUnits("1000", 6);   // Valor fixo de trade: $1000 em USDC
+const TRADE_AMOUNT_USDC = parseUnits("125", 6);   // Valor fixo de trade: $1000 em USDC
 const MIN_PROFIT_USD = 1;                         // Mínimo de lucro para executar operação
 const INTERVAL = 5000;                            // Tempo entre verificações (5 segundos)
 const MAX_DAILY_LOSS = 200;                       // Perda máxima diária permitida
