@@ -25,30 +25,20 @@ function getQuoteCache(key) {
     return data.value;
 }
 
-// Logger simples sem módulos externos
+// ✅ Logger geral
 function log(msg, level = "info") {
   const timestamp = new Date().toISOString();
   const line = `[${timestamp}] ${level.toUpperCase()}: ${msg}`;
-  console.log(line);
+  console.log(line); // mostra no terminal (VS Code e Render)
   fs.appendFileSync("bot_arbitrage.log", line + "\n");
-
-  fs.watchFile('bot_arbitrage.log', () => {
-    const data = fs.readFileSync('bot_arbitrage.log', 'utf8');
-    console.log(data.split('\n').slice(-10).join('\n')); // Mostra as últimas 10 linhas
-  });
 }
 
-// Logger somente para trades lucrativos
+// ✅ Logger de lucros
 function logProft(msg, level = "info") {
   const timestamp = new Date().toISOString();
   const line = `[${timestamp}] ${level.toUpperCase()}: ${msg}`;
-  console.log(line);
+  console.log(line); // mostra no terminal (VS Code e Render)
   fs.appendFileSync("bot_arbitrage_profits.log", line + "\n");
-
-  fs.watchFile('bot_arbitrage_profits.log', () => {
-    const data = fs.readFileSync('bot_arbitrage_profits.log', 'utf8');
-        console.log(data.split('\n').slice(-10).join('\n')); // Mostra as últimas 10 linhas
-  });
 }
 
 // Configurações do bot
@@ -56,7 +46,7 @@ const provider = new JsonRpcProvider(process.env.RPC_URL);
 const wallet = new Wallet(process.env.PRIVATE_KEY, provider);
 
 // Configurações de trade
-const TRADE_AMOUNT_USDC = parseUnits("125", 6);   // Valor fixo de trade: $1000 em USDC
+const TRADE_AMOUNT_USDC = parseUnits("1000", 6);   // Valor fixo de trade: $1000 em USDC
 const MIN_PROFIT_USD = 1;                         // Mínimo de lucro para executar operação
 const INTERVAL = 5000;                            // Tempo entre verificações (5 segundos)
 const MAX_DAILY_LOSS = 200;                       // Perda máxima diária permitida
@@ -79,14 +69,21 @@ const TOKENS = {
   WBTC: getAddress("0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6"),
   MATIC: getAddress("0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"),
   AAVE: getAddress("0xd6df932a45c0f255f85145f286ea0b292b21c90b"),
-  miMATIC: getAddress('0xa3Fa99A148fA48D14Ed51d610c367C61876997F1')
+  // miMATIC: getAddress('0xa3Fa99A148fA48D14Ed51d610c367C61876997F1'),
+  // LINK: getAddress('0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39'),
+  // OM: getAddress('0xc3ec80343d2bae2f8e680fdadde7c17e71e114ea'),
+  // RNDR: getAddress('0x61299774020dA444Af134c82fa83E3810b309991'),
+  // CRV: getAddress('0x172370d5Cd63279eFa6d502DAB29171933a610AF'),
+  // BONK: getAddress('0xe5b49820e5a1063f6f4ddf851327b5e8b2301048'),
+  // NEXO: getAddress('0x41b3966b4ff7b427969ddf5da3627d6aeae9a48e'),
+  // QUICK: getAddress('0xb5c064f955d8e7f38fe0460c556a72987494ee17')
 };
 
 // DEXs e seus tipos (v2 ou v3)
 const ROUTERS = {
   __uniswap_v3: { address: getAddress("0xE592427A0AEce92De3Edee1F18E0157C05861564"), type: "v3" }, // Contrato Router Verificado e Ok
   quickswap_v2: { address: getAddress("0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff"), type: "v2" }, // Contrato Router Verificado e Ok
-  sushiswap_v2: { address: getAddress("0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506"), type: "v2" }, // Tem que testar | Mesmo router da uniswap v2
+  // sushiswap_v2: { address: getAddress("0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506"), type: "v2" }, // Tem que testar | Mesmo router da uniswap v2 | Baixissimo Volume de Negociações
   quickswap_v3: { address: getAddress("0xf5b509bB0909a69B1c207E495f687a596C168E12"), type: "v3" }, // Tem que testar
 };
 

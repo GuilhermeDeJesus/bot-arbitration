@@ -1,0 +1,20 @@
+Segue uma lista das principais DEXes com seus respectivos endereços de contrato (router) e versões (V2 ou V3):​
+
+DEX	Versão	            Rede	            Endereço do Router
+Uniswap	V2	            Ethereum	        0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D
+Uniswap	V3	            Ethereum	        0xe592427a0aece92de3edee1f18e0157c05861564
+SushiSwap V2	        Ethereum	        0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f
+QuickSwap V2	        Polygon	            0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff
+QuickSwap V3	        Polygon	            0xf5b509bB0909a69B1c207E495f687a596C168E12
+KyberSwap Classic V2	Ethereum	        0x1c87257F5e8609940Bc751a07BB085Bb7f8cDBE6
+KyberSwap Elastic V3	Ethereum	        0xF9c2b5746c946EF883ab2660BbbB1f10A5bdeAb4
+PancakeSwap	V2	        BNB Chain	        0x10ed43c718714eb63d5aa57b78b54704e256024e
+PancakeSwap	V3	        BNB Chain	        0x13f4EA83D0bd40E75C8222255bc855a974568Dd4
+ShibaSwap V2	        Ethereum	        0x03f7724180AA6b939894B5Ca4314783B0b36b329
+ApeSwap	V2	            Polygon	            0xc0788A3aD43d79AA53B09c2Eacc313A787d1d607
+Camelot	V3	            Arbitrum	        0x6B1eA3c6bF3cA6A7A1eC8dFf935fE1D6D23d3E5d
+THENA V3	            BNB Chain	        0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11
+
+Esses endereços correspondem aos contratos de roteamento (routers) utilizados por cada DEX para facilitar as operações de swap de tokens. Certifique-se de utilizar o endereço correto correspondente à versão e à rede desejada ao interagir com essas plataformas.
+
+Próxima pergunta a ser feita: me ajuda a criar outro bot node de arbitragem em outras dexes baseado em meu bot atual ?
